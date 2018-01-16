@@ -1,7 +1,7 @@
 # The Tech Project: Arduino en el aula
 Recursos para el curso de formación 
 
-<img src="logo.png" width="100" align="center">
+<img src="logo.png" width="400" align="center">
 
 # Licencia:
 Los contenidos han sido desarrollados por:
