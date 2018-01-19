@@ -14,3 +14,5 @@ Todos los recursos están disponibles bajo licencia Creative Commons 4.0 [Creati
 
 Dirección y realización del curso:
 Avante S.L http://www.avante.es/
+<img src="logo-avante-2.png" width="100" align="center">
+
