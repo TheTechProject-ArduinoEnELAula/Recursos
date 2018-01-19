@@ -11,3 +11,8 @@ Los contenidos han sido desarrollados por:
 Todos los recursos están disponibles bajo licencia Creative Commons 4.0 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)
 
 <img src="By-sa.png" width="100" align="center">
+
+Dirección y realización del curso:
+<img src="logo-avante-2.png" width="100" align="center">
+- Avante Formación http://www.avante.es/
+
