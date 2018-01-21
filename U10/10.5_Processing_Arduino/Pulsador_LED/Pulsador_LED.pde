@@ -12,19 +12,19 @@ Serial myPort;    // se crea el objeto myPort de tipo Serial
 
 // variables pulsador
 int xpos, ypos;  //posición pulsador
-int altura=75;    // altura rectangulo
+int alto=75;    // altura rectangulo
 int longitud=100;  // longitud rectangulo
-boolean overButton = false;
+boolean overButton = false;    // comprueba si el raton enta encima del pulsador
 int colorButton=125;  // color del pulsador en escala grises
 
 // variables LED
-boolean ledStatus=false;    // estado del led
-int radio=75;           // radio del led 
+boolean ledStatus=false;    // estado del led apagado-encendido
+int radio=75;           // radio del circulo del led 
 int colorRLED=100;      // canal rojo del color del led
 
 void setup() {
   size(500, 300);  // tamaño de la pantalla
-  // establece las variables para la posicion del pulsador
+  // establece los valores posicion del pulsador
   xpos = width/3;
   ypos = height/2;
   // imprime la lista de los puertos series 
@@ -41,19 +41,19 @@ void draw() {
   // dibujamos el pulsador
   fill(colorButton);    // color de relleno del pulsador
   rectMode(CENTER);    // coordenadas en el centro del rectangulo
-  rect(xpos, ypos, longitud, altura, 8);
+  rect(xpos, ypos, longitud, alto, 8);
   // dibujamos el LED
-  fill(colorRLED, 0, 0);
+  fill(colorRLED, 0, 0);  // color del led
   ellipse(width*2/3, height/2, radio, radio);
 
-  // Si el raton está encima del pulsador
+  // si el raton está encima del pulsador
   if (mouseX > xpos-longitud/2 && mouseX < xpos+longitud/2 && 
-    mouseY > ypos-altura/2 && mouseY < ypos+altura/2) {
+    mouseY > ypos-alto/2 && mouseY < ypos+alto/2) {
     overButton = true;    // variable overButton a true
-    colorButton=190;      // cambia el color del pulsador
+    colorButton=190;      // cambia el color del pulsador gris claro
   } else {
     overButton = false;    // variable overButton a false
-    colorButton=150;      // cambia el color del pulsador
+    colorButton=150;      // cambia el color del pulsador gris oscuro
   }
 }
 
