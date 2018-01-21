@@ -8,23 +8,23 @@
 
 // se importa la libreria serial
 import processing.serial.*;
-Serial myPort;    // se crea myPort de tipo Serial                   
+Serial myPort;    // se crea el objeto myPort de tipo Serial                   
 
 // variables pulsador
 int xpos, ypos;  //posición pulsador
-int altura=75;
-int longitud=100;
+int altura=75;    // altura rectangulo
+int longitud=100;  // longitud rectangulo
 boolean overButton = false;
-int colorButton=125;
+int colorButton=125;  // color del pulsador en escala grises
 
 // variables LED
-boolean ledStatus=false;
-int radio=75;
-int colorRLED=100;
+boolean ledStatus=false;    // estado del led
+int radio=75;           // radio del led 
+int colorRLED=100;      // canal rojo del color del led
 
 void setup() {
   size(500, 300);  // tamaño de la pantalla
-  // establece la posicion del pulsador
+  // establece las variables para la posicion del pulsador
   xpos = width/3;
   ypos = height/2;
   // imprime la lista de los puertos series 
@@ -37,7 +37,7 @@ void setup() {
 void draw() {
 
   // dibujamos el fondo
-  background(10);  
+  background(245);  
   // dibujamos el pulsador
   fill(colorButton);    // color de relleno del pulsador
   rectMode(CENTER);    // coordenadas en el centro del rectangulo
@@ -49,11 +49,11 @@ void draw() {
   // Si el raton está encima del pulsador
   if (mouseX > xpos-longitud/2 && mouseX < xpos+longitud/2 && 
     mouseY > ypos-altura/2 && mouseY < ypos+altura/2) {
-    overButton = true;
-    colorButton=200;
+    overButton = true;    // variable overButton a true
+    colorButton=190;      // cambia el color del pulsador
   } else {
-    overButton = false;
-    colorButton=150;
+    overButton = false;    // variable overButton a false
+    colorButton=150;      // cambia el color del pulsador
   }
 }
 
@@ -73,3 +73,4 @@ void mousePressed() {
     }
   }
 }
+
