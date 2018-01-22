@@ -30,7 +30,7 @@ void loop() {
   }
   // si no esta presionado
   else {
-    digitalWrite(buzzerPin, LOW);     // activa el zumbador
+    digitalWrite(buzzerPin, LOW);     // apaga el zumbador
   }
 }
 
