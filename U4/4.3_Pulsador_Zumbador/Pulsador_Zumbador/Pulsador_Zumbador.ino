@@ -1,8 +1,13 @@
 /*
- Pulsador Timbre
+ Pulsador Zumbador
  Sistema para controlar un zumbador con un pulsador
- Hardware: Pulsador, Zumbador
+ 
+ Hardware: 
+ Pulsador pin 2
+ Zumbador pin 12
+ 
  Jose Pujol
+ Septiembre 2017
  */
 
 // constantes que no cambian se usan para establecer los pines
