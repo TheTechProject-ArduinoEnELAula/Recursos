@@ -1,8 +1,14 @@
 /*
-  Semaforo verde, amarillo y rojo
-  verde 6s
-  amarillo 2s- 10 parpadeos
-  rojo 4s
+  Semaforo: 
+  Estado verde 6s
+  Estado amarillo 2s- con 5 parpadeos de 0,4s
+  Estado rojo 4s
+  
+  LED rojo pin 12
+  LED amarillo pin 10
+  LED verde pin 8
+  Zumbador Pin 6
+  
   Jose Pujol
   Octubre 2017
 */
