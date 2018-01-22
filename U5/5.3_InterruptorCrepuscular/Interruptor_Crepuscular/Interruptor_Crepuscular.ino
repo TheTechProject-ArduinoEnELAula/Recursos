@@ -1,6 +1,11 @@
 /*
+   Interruptor Crepuscular:
    Sistema para controlar el encendido de un led
    en funcion de la intensidad luminosa
+   
+   LDR pin A0
+   LED pin 12
+   
    Noviembre 207
    Jose Pujol
 */
