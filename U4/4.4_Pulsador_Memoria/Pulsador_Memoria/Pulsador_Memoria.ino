@@ -1,5 +1,10 @@
 /*
  * Pulsador con Memoria
+ Pulsador para controlar un LED con memoria
+ 
+ Pulsador pin 2
+ LED pin 12
+ 
  * Noviembre de 2017
  * Jose Pujol
  */
