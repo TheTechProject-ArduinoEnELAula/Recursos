@@ -1,6 +1,9 @@
 /* 
  Titilar 
  Enciende y apaga LED por espacio de un segundo de forma repetitiva 
+
+ LED pin 13
+ 
  Jose Pujol
  Octubre 2017
  Programa basado en Blink- https://www.arduino.cc/en/Tutorial/Blink
