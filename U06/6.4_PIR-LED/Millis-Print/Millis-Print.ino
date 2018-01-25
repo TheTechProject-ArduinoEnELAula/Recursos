@@ -1,7 +1,9 @@
 /*
   Programa para imprimir el tiempo por puerto serie
   usando control de tiempo por reloj interno
-
+  
+  Jose Pujol
+  Noviembre 2017
 */
 
 // Variables de tiempo
