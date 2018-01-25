@@ -1,5 +1,9 @@
 /*
   Control de un PIR para encender un LED con retardo de tiempo
+  
+  LED pin 12
+  PIR pin 3
+  
   Jose Pujol
   Noviembre de 2017
 */
