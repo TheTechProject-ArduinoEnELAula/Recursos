@@ -1,10 +1,12 @@
 /*
     Programa para encender y apagar un LED gradualmente
     Subida y bajada de 2,5s
-    Basado en el programa Fading de Arduino
+    
+    LED pin 9
+    
+    Basado en el programa Fade de Arduino
     Jose Pujol
     Noviembre de 2017
-    Programa basado en Fading de Arduino
 */
 
 // Variables globales constantes
