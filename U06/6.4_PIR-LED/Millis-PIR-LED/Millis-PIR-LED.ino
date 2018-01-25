@@ -1,5 +1,7 @@
 /*
-  Control de un PIR para encender un LED con retardo de tiempo
+  Control del encendido de un LED mediante sensor de presencia PIR
+  añadiendo un retardo de tiempo al apagado mediate control por
+  reloj interno
   
   LED pin 12
   PIR pin 3
