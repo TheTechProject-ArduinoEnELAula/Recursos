@@ -1,6 +1,11 @@
 /*
- Controla la lumninosidad LED con potenciómetro
-Jose Pujol
+ Control de la lumninosidad de un LED con un potenciómetro
+ 
+ LED pin 9
+ Potenciometro pin A0
+ 
+ Noviembre 2017
+ Jose Pujol
  */
  
 // Variables globales
