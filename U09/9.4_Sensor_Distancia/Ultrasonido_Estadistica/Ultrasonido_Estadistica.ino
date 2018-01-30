@@ -58,8 +58,9 @@ float  measuringdistance() {
 void statisticData(){
   int samples[NumSamples];
   fAverage=0;
+  // Damos valores extremos a Min y Max para asegurar que se van calcular bien
   fMinimun=10000000;
-  fMaximun=0; // Damos valores extremos a Min y Max
+  fMaximun=0; 
   
   numData=0;
   for(int i = 0 ; i < NumSamples; i++){
