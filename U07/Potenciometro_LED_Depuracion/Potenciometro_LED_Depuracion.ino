@@ -6,6 +6,10 @@
  
  Noviembre 2017
  Jose Pujol
+
+
+ Trazas añadidas por JAVacas
+
  */
  
 // Variables globales
@@ -36,4 +40,5 @@ void loop() {
   Serial.println("Escribimos el valor PWM");
   analogWrite(ledPin, bright);
 }
+
 
