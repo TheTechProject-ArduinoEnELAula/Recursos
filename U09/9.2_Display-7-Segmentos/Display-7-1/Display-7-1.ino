@@ -6,7 +6,7 @@
    Enero de 2018
    Jose Pujol
 */
-
+// declaración de constantes para los pines
 const int pinLatch = 11;  // pin para el latch del 74CH495
 const int pinData = 10;  // pin para Datos serie del 74CH495
 const int pinClock = 12;  // pin para reloj del 74CH495
