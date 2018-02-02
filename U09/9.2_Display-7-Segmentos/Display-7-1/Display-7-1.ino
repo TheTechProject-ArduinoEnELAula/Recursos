@@ -28,7 +28,7 @@ void loop() {
     // se establece el registro en modo escucha 
     digitalWrite(pinLatch, LOW);
     // se manda el byte numbers[i]
-    shiftOut(pinDatos, pinReloj, LSBFIRST, numbers[i]);
+    shiftOut(pinData, pinClock, LSBFIRST, numbers[i]);
     // se fija el valor del registro
     digitalWrite(pinLatch, HIGH);
     delay(1000);  // se espera 1 segundo
