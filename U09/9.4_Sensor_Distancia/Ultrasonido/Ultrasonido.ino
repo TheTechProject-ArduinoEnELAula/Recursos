@@ -1,3 +1,17 @@
+/*
+ * Codigo para medir distancia con sensor de ultrasonidos
+ * Se mide por intervalo de tiempo mediante reloj interno
+ * Se imprime la medición en cm por el puerto serie
+ * 
+ * Sensor de Ultrasonidos: HCSR04
+ * Trigger pin 11
+ * Echo pin 12
+ * 
+ * Jose Pujol
+ * Enero 2018
+ */
+
+
 // Conexion pines del sensor de distancia
 const int triggerPin = 11; // Pin donde conectamos el emisor
 const int echoPin = 12; // Pin donde conectamos el receptor
@@ -5,6 +19,8 @@ const int echoPin = 12; // Pin donde conectamos el receptor
 // variables para almacenar tiempo actual y tiempo anterior
 unsigned long current_time = 0;
 unsigned long previous_time = 0;
+
+const long interval=100;  // intervalo de tiempo de medición
 
 void setup() {
   Serial.begin(9600); // Abrimos el puerto serie
@@ -15,7 +31,7 @@ void loop() {
   // grabamos el tiempo
   current_time = millis();
   // si el tiempo es mayor que el intervalo medimos
-  if (current_time - previous_time > 1000) {
+  if (current_time - previous_time > interval) {
     previous_time = current_time;
     float cm = measuringdistance ();
     Serial.println (cm);
@@ -41,6 +57,7 @@ float  measuringdistance() {
   // devolvemos la distancia
   return distance;
 }
+
 
 
 
