@@ -22,7 +22,7 @@ void loop() {
  // grabamos el tiempo
   current_time = millis();
   // si el tiempo es mayor que el intervalo medimos
-  if (current_time - previous_time > 1000) {
+  if (current_time - previous_time > 100) {
     previous_time = current_time;
     // Tomamos NumSamples medidas 
     statisticData();
