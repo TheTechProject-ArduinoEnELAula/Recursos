@@ -6,12 +6,17 @@ const int echoPin = 12; // Pin donde conectamos el receptor
 unsigned long current_time = 0;
 unsigned long previous_time = 0;
 
-long interval=100; // intervalo de tiempo 
+long interval = 1000; // intervalo de tiempo
 
 // Variables para guardar el valor medio, el minimo y el maximo
-float fAverage,fMinimun,fMaximun;
+float fAverage, fMinimun, fMaximun;
 
-const int numMeasures=10; // Numero de medidas que se toman
+const int numMeasures = 10; // Numero de medidas que se toman
+
+// array para almacenar las medidas
+//float cms[numMeasures];
+
+
 int numData; // Numero de datos que tenemos
 
 void setup() {
@@ -19,14 +24,15 @@ void setup() {
   pinMode(triggerPin, OUTPUT); // Configuramos trigger como salida digital
   pinMode(echoPin, INPUT); // Configuramos echo como entrada digital
 }
+
 void loop() {
- // grabamos el tiempo
+  // grabamos el tiempo
   current_time = millis();
   // si el tiempo es mayor que el intervalo medimos
-  if (current_time - previous_time > 100) {
+  if (current_time - previous_time > interval) {
     previous_time = current_time;
-    // Tomamos NumSamples medidas 
-    statisticData();
+    // Tomamos NumSamples medidas
+    statisticdata();
     Serial.print (fMinimun);
     Serial.print (",");
     Serial.print (fAverage);
@@ -37,7 +43,7 @@ void loop() {
 
 // funcion para medir la distancia
 float  measuringdistance() {
-// Variable para almacenar el tiempo de la onda y la distancia
+  // Variable para almacenar el tiempo de la onda y la distancia
   float duration, distance;
   //Inicializamos el sensor
   digitalWrite(triggerPin, LOW);
@@ -56,21 +62,19 @@ float  measuringdistance() {
 }
 
 // Funcion para hacer estadistica sobre las medidas
-void statisticData(){
-  fAverage=0; // actualizamos la media a cero
-  // Damos valores extremos a Min y Max para asegurar que se van calcular bien
-  fMinimun=10000000;
-  fMaximun=0; 
-  
-  numData=0;
-  for(int i = 0 ; i < numMeasures; i++){
-    float cm = measuringdistance ();
-    if (cm!=0) {  // Solo tomamos valores distintos de 0 
-      numData++;
-      if(fMinimun>cm)  fMinimun=cm;  // Tenemos un nuevo minimo
-      if(fMaximun<cm)  fMaximun=cm;  // Tenemos un nuevo maximo
-      fAverage=fAverage+cm;
-    }
-  } 
-  if(numData>0) fAverage=fAverage/numData;  
+void statisticdata() {
+  float measures[numMeasures];
+  numData = 0;
+  fMinimun = 10000000.0;
+  fMaximun = 0.0;
+  float fSum = 0;
+  for (int i = 0 ; i < numMeasures; i++) {
+    measures[numMeasures] = measuringdistance ();
+    if (measures[numMeasures] > 0) numData++;
+    if (measures[numMeasures] < fMinimun && measures[numMeasures] > 0) fMinimun = measures[numMeasures];
+    if (measures[numMeasures] > fMaximun) fMaximun = measures[numMeasures];
+    fSum = measures[numMeasures] + fSum;
+    Serial.println(measures[numMeasures]);
+  }
+  if (numData > 0) fAverage = fSum / numData;
 }
