@@ -6,18 +6,12 @@ const int echoPin = 12; // Pin donde conectamos el receptor
 unsigned long current_time = 0;
 unsigned long previous_time = 0;
 
-long interval = 1000; // intervalo de tiempo
+const long interval = 1000; // intervalo de tiempo
 
 // Variables para guardar el valor medio, el minimo y el maximo
 float fAverage, fMinimun, fMaximun;
 
 const int numMeasures = 10; // Numero de medidas que se toman
-
-// array para almacenar las medidas
-//float cms[numMeasures];
-
-
-int numData; // Numero de datos que tenemos
 
 void setup() {
   Serial.begin(9600); // Abrimos el puerto serie
@@ -64,7 +58,7 @@ float  measuringdistance() {
 // Funcion para hacer estadistica sobre las medidas
 void statisticdata() {
   float measures[numMeasures];
-  numData = 0;
+  int numData = 0;
   fMinimun = 10000000.0;
   fMaximun = 0.0;
   float fSum = 0;
@@ -78,3 +72,6 @@ void statisticdata() {
   }
   if (numData > 0) fAverage = fSum / numData;
 }
+
+
+
