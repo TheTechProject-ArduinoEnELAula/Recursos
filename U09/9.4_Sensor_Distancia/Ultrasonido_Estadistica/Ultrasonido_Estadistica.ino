@@ -56,7 +56,7 @@ float  measuringdistance() {
 
 // Funcion para hacer estadistica sobre las medidas
 void statisticData(){
-  int samples[NumSamples];  // este array no sirve para nada no?
+  int samples[NumSamples];  // este array no sirve para nada no?, lo eilminamos?
   fAverage=0;
   // Damos valores extremos a Min y Max para asegurar que se van calcular bien
   fMinimun=10000000;
