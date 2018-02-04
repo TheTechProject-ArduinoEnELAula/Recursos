@@ -8,10 +8,12 @@ unsigned long previous_time = 0;
 
 const long interval = 1000; // intervalo de tiempo
 
+const int numMeasures = 10; // Numero de medidas que se toman
+
 // Variables para guardar el valor medio, el minimo y el maximo
 float fAverage, fMinimun, fMaximun;
 
-const int numMeasures = 10; // Numero de medidas que se toman
+
 
 void setup() {
   Serial.begin(9600); // Abrimos el puerto serie
@@ -59,19 +61,22 @@ float  measuringdistance() {
 void statisticdata() {
   float measures[numMeasures];
   int numData = 0;
-  fMinimun = 10000000.0;
+  fMinimun = 5000.0;
   fMaximun = 0.0;
   float fSum = 0;
+
   for (int i = 0 ; i < numMeasures; i++) {
-    measures[numMeasures] = measuringdistance ();
-    if (measures[numMeasures] > 0) numData++;
-    if (measures[numMeasures] < fMinimun && measures[numMeasures] > 0) fMinimun = measures[numMeasures];
-    if (measures[numMeasures] > fMaximun) fMaximun = measures[numMeasures];
-    fSum = measures[numMeasures] + fSum;
-    Serial.println(measures[numMeasures]);
+    measures[i] = measuringdistance();
+    if (measures[i] > 0) numData++;
   }
+
+  for (int i = 0 ; i < numMeasures; i++) {
+    if (fMinimun > measures[i]  && measures[i] > 0) fMinimun = measures[i];
+    if (fMaximun < measures[i]) fMaximun = measures[i];
+    fSum = measures[i] + fSum;
+  }
+
   if (numData > 0) fAverage = fSum / numData;
 }
-
 
 
