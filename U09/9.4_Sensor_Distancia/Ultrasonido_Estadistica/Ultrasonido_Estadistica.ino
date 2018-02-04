@@ -2,15 +2,16 @@
 const int triggerPin = 11; // Pin donde conectamos el emisor
 const int echoPin = 12; // Pin donde conectamos el receptor
 
-// Numero de medidas a tomar
-const int NumSamples = 10;
-
 // variables para almacenar tiempo actual y tiempo anterior
 unsigned long current_time = 0;
 unsigned long previous_time = 0;
 
+long interval=100; // intervalo de tiempo 
+
 // Variables para guardar el valor medio, el minimo y el maximo
 float fAverage,fMinimun,fMaximun;
+
+const int numMeasures=10; // Numero de medidas que se toman
 int numData; // Numero de datos que tenemos
 
 void setup() {
@@ -56,14 +57,13 @@ float  measuringdistance() {
 
 // Funcion para hacer estadistica sobre las medidas
 void statisticData(){
-  int samples[NumSamples];  // este array no sirve para nada no?, lo eilminamos?
-  fAverage=0;
+  fAverage=0; // actualizamos la media a cero
   // Damos valores extremos a Min y Max para asegurar que se van calcular bien
   fMinimun=10000000;
   fMaximun=0; 
   
   numData=0;
-  for(int i = 0 ; i < NumSamples; i++){
+  for(int i = 0 ; i < numMeasures; i++){
     float cm = measuringdistance ();
     if (cm!=0) {  // Solo tomamos valores distintos de 0 
       numData++;
