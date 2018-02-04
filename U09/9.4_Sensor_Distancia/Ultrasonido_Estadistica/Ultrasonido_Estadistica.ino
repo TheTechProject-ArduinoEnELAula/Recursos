@@ -8,8 +8,6 @@ unsigned long previous_time = 0;
 
 const long interval = 1000; // intervalo de tiempo
 
-const int numMeasures = 10; // Numero de medidas que se toman
-
 // Variables para guardar el valor medio, el minimo y el maximo
 float fAverage, fMinimun, fMaximun;
 
@@ -27,13 +25,14 @@ void loop() {
   // si el tiempo es mayor que el intervalo medimos
   if (current_time - previous_time > interval) {
     previous_time = current_time;
-    // Tomamos NumSamples medidas
+    // llamada a la funcion estatisticdata
     statisticdata();
-    Serial.print (fMinimun);
+    // se imprimen por pantalla los valores
+    Serial.print (fMinimun);  // minimo
     Serial.print (",");
-    Serial.print (fAverage);
+    Serial.print (fAverage);  // media
     Serial.print (",");
-    Serial.println (fMaximun);
+    Serial.println (fMaximun); // maximo
   }
 }
 
@@ -57,26 +56,32 @@ float  measuringdistance() {
   return distance;
 }
 
-// Funcion para hacer estadistica sobre las medidas
+// Funcion para hacer estadistica sobre las medidas tomadas
 void statisticdata() {
-  float measures[numMeasures];
-  int numData = 0;
-  fMinimun = 5000.0;
-  fMaximun = 0.0;
-  float fSum = 0;
+  const int numMeasures = 10; // Numero de medidas que se toman
+  float measures[numMeasures];  // array con el numero de medidas
+  int numData = 0;    // numero de datos con valor >0
+  fMinimun = 5000.0;  // se asigna un valor minimo alto
+  fMaximun = 0.0;       // valor minimo cero
+  float fSum = 0;     // variable para almacenar la suma
 
+  // se guarda el array con las medidas
   for (int i = 0 ; i < numMeasures; i++) {
     measures[i] = measuringdistance();
     if (measures[i] > 0) numData++;
   }
 
+  // se calculan el minimo el maximo y la suma
   for (int i = 0 ; i < numMeasures; i++) {
     if (fMinimun > measures[i]  && measures[i] > 0) fMinimun = measures[i];
     if (fMaximun < measures[i]) fMaximun = measures[i];
     fSum = measures[i] + fSum;
   }
-
+  // se obtiene la media en caso de que el nuemro de datos sea mayor de cero
   if (numData > 0) fAverage = fSum / numData;
 }
+
+
+
 
 
