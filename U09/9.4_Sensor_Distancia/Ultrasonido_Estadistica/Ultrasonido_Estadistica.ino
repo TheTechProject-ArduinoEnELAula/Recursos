@@ -6,12 +6,11 @@ const int echoPin = 12; // Pin donde conectamos el receptor
 unsigned long current_time = 0;
 unsigned long previous_time = 0;
 
-const long interval = 1000; // intervalo de tiempo
+// constante con el intervalo de tiempo en el calculan las medidas
+const long interval = 1000; 
 
-// Variables para guardar el valor medio, el minimo y el maximo
-float fAverage, fMinimun, fMaximun;
-
-
+// Variables para guardar el valor minimo el medio y el maximo
+float fMinimun,fAverage, fMaximun;
 
 void setup() {
   Serial.begin(9600); // Abrimos el puerto serie
@@ -20,12 +19,11 @@ void setup() {
 }
 
 void loop() {
-  // grabamos el tiempo
-  current_time = millis();
+  current_time = millis();  // grabamos el tiempo
   // si el tiempo es mayor que el intervalo medimos
   if (current_time - previous_time > interval) {
-    previous_time = current_time;
-    // llamada a la funcion estatisticdata
+    previous_time = current_time; // actualizamos el tiempo
+    // llamada a la funcion statisticdata
     statisticdata();
     // se imprimen por pantalla los valores
     Serial.print (fMinimun);  // minimo
@@ -59,29 +57,32 @@ float  measuringdistance() {
 // Funcion para hacer estadistica sobre las medidas tomadas
 void statisticdata() {
   const int numMeasures = 10; // Numero de medidas que se toman
-  float measures[numMeasures];  // array con el numero de medidas
-  int numData = 0;    // numero de datos con valor >0
-  fMinimun = 5000.0;  // se asigna un valor minimo alto
-  fMaximun = 0.0;       // valor minimo cero
+  float measures[numMeasures];  // array con las medidas de distancia obtenidas
+  int numData = 0;    // variable que cuuenta el numero de datos con valor >0
+  fMinimun = 5000.0;  // se asigna un valor maximo alto
+  fMaximun = 0.0;     // valor minimo cero
   float fSum = 0;     // variable para almacenar la suma
 
   // se guarda el array con las medidas
+      Serial.println("------------SERIE DATOS----------- ");
   for (int i = 0 ; i < numMeasures; i++) {
     measures[i] = measuringdistance();
-    if (measures[i] > 0) numData++;
+    if (measures[i] > 0) numData++; // se cuenta el numero de medidas >0
+    Serial.print(measures[i]);
+    Serial.print(",  ");
   }
+  Serial.println(" ");    
+  Serial.println("MIN, MEDIA, MAXIMO");
 
   // se calculan el minimo el maximo y la suma
   for (int i = 0 ; i < numMeasures; i++) {
-    if (fMinimun > measures[i]  && measures[i] > 0) fMinimun = measures[i];
-    if (fMaximun < measures[i]) fMaximun = measures[i];
-    fSum = measures[i] + fSum;
+    if (fMinimun > measures[i]  && measures[i] > 0) fMinimun = measures[i]; // se obtiene el minimo
+    if (fMaximun < measures[i]) fMaximun = measures[i]; // se obtiene el maximo
+    fSum = measures[i] + fSum; // Obtenemos la suma de la serie
   }
-  // se obtiene la media en caso de que el nuemro de datos sea mayor de cero
+  // se obtiene la media en caso de que el numero de datos sea mayor de cero
   if (numData > 0) fAverage = fSum / numData;
 }
-
-
 
 
 
