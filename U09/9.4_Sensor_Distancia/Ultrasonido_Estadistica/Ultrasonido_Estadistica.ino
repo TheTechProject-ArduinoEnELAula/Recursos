@@ -64,15 +64,10 @@ void statisticdata() {
   float fSum = 0;     // variable para almacenar la suma
 
   // se guarda el array con las medidas
-      Serial.println("------------SERIE DATOS----------- ");
   for (int i = 0 ; i < numMeasures; i++) {
     measures[i] = measuringdistance();
     if (measures[i] > 0) numData++; // se cuenta el numero de medidas >0
-    Serial.print(measures[i]);
-    Serial.print(",  ");
   }
-  Serial.println(" ");    
-  Serial.println("MIN, MEDIA, MAXIMO");
 
   // se calculan el minimo el maximo y la suma
   for (int i = 0 ; i < numMeasures; i++) {
@@ -83,6 +78,3 @@ void statisticdata() {
   // se obtiene la media en caso de que el numero de datos sea mayor de cero
   if (numData > 0) fAverage = fSum / numData;
 }
-
-
-
