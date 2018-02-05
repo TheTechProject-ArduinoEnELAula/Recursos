@@ -1,3 +1,18 @@
+/*
+ * Codigo para medir distancia con sensor de ultrasonidos
+ * Se mide por intervalo de tiempo mediante reloj interno
+ * Se realiza calculo estadistico de valor minimo, media y máximo
+ * de un array y se imprime por el puerto serie
+ * 
+ * Sensor de Ultrasonidos: HCSR04
+ * Trigger pin 11
+ * Echo pin 12
+ * 
+ * Jose Pujol
+ * Jose Antonio vacas
+ * Enero 2018
+ */
+
 // Conexion pines del sensor de distancia
 const int triggerPin = 11; // Pin donde conectamos el emisor
 const int echoPin = 12; // Pin donde conectamos el receptor
