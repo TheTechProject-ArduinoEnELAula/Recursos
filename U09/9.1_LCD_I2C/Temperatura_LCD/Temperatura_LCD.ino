@@ -17,7 +17,7 @@
 const int TMP36Pin = A0;                  // Conectamos el pin central a A0
 float temperatura = 0;                    // almacenamos la temperatura medida
 
-LiquidCrystal_I2C lcd(0x3F,16,2);         // Objeto LCD_I2C
+LiquidCrystal_I2C lcd(0x3F,20,4);         // Objeto LCD_I2C
 
 void setup() {
   Serial.begin(9600);                     // Configuramos la conexion con el PC
