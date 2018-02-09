@@ -80,9 +80,19 @@ void statisticdata() {
 
   // se guarda el array con las medidas
   for (int i = 0 ; i < numMeasures; i++) {
-    measures[i] = measuringdistance();
+    measures[i] = measuringdistance(); // llamada a funcion measuringdistance y se almacena en el array 
     if (measures[i] > 0) numData++; // se cuenta el numero de medidas >0
   }
+
+  // se calculan el minimo el maximo y la suma
+  for (int i = 0 ; i < numMeasures; i++) {
+    if (fMinimun > measures[i]  && measures[i] > 0) fMinimun = measures[i]; // se obtiene el minimo
+    if (fMaximun < measures[i]) fMaximun = measures[i]; // se obtiene el maximo
+    fSum = measures[i] + fSum; // Obtenemos la suma de la serie
+  }
+  // se obtiene la media en caso de que el numero de datos sea mayor de cero
+  if (numData > 0) fAverage = fSum / numData;
+}
 
   // se calculan el minimo el maximo y la suma
   for (int i = 0 ; i < numMeasures; i++) {
