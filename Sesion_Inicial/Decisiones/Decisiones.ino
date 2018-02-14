@@ -1,7 +1,9 @@
 /*
  Pulsador Timbre
  Sistema para controlar un zumbador con un pulsador
- Hardware: Pulsador, Zumbador
+ Hardware: 
+ Pulsador pin 2
+ Zumbador de tipo pasivo pin 11
  Jose Pujol
  */
 
