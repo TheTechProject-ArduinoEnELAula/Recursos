@@ -11,8 +11,8 @@ Montaje
 
 Sensor de temperatura TMP6        A0
 
-RGB_B     9
-RGB_R    10
+RGB_B    10
+RGB_R    9
 RGB_G    11
 
 by JAVacasM
@@ -23,8 +23,8 @@ by JAVacasM
 const int TMP36Pin=A0;
 
 const int ledPWM_G=11;
-const int ledPWM_R=10;
-const int ledPWM_B=9;
+const int ledPWM_R=9;
+const int ledPWM_B=10;
 
 
 //Para escalar el color definimos una temperatura minima y una maxima
