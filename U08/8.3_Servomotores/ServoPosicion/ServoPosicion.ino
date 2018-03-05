@@ -11,7 +11,7 @@
 // crea el objeto myservo tipo servo
 Servo myservo;
 
-// constantes para conexion oines
+// constantes para conexion pines
 const int potPin = A0;  // pin de conexion de potenciometro
 const int servoPin=8; // pin de conexion de servo
 
