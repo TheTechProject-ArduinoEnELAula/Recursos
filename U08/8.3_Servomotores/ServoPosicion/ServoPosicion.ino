@@ -1,6 +1,10 @@
 /*
  * Programa para controlar la posición de un servo
  * en función de un potenciómetro
+ *
+ * Pin A0 Potenciometro
+ * Pin 8 Servomotor
+ *
  * Diciembre de 2017
  * Jose Pujol
  * Basado en programa Knob IDE Arduino- Michal Rinott
@@ -13,11 +17,11 @@ Servo myservo;
 
 // constantes para conexion pines
 const int potPin = A0;  // pin de conexion de potenciometro
-const int servoPin=8; // pin de conexion de servo
+const int servoPin=8;   // pin de conexion de servo
 
 // variables que cambian
-int potValue=0;    // variable para alamacenar el valor del potenciometro
-int angle = 0; // numero de grados del servo
+int potValue=0;    // variable para almacenar el valor del potenciometro
+int angle = 0;     // numero de grados del servo
 
 void setup()
 {
