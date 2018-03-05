@@ -11,13 +11,17 @@
 // crea el objeto myservo tipo servo
 Servo myservo;
 
+// constantes para conexion oines
 const int potPin = A0;  // pin de conexion de potenciometro
-int potValue;    // variable para alamacenar el valor del potenciometro
+const int servoPin=8; // pin de conexion de servo
+
+// variables que cambian
+int potValue=0;    // variable para alamacenar el valor del potenciometro
 int angle = 0; // numero de grados del servo
 
 void setup()
 {
-  myservo.attach(8);   // vincula el servo al pin digital 8
+  myservo.attach(servoPin);   // vincula el servo al pin digital 8
 }
 
 void loop()
