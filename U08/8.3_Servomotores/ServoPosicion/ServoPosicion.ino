@@ -10,10 +10,9 @@
  * Basado en programa Knob IDE Arduino- Michal Rinott
  */
 
-// incluye la libreria servo
-#include <Servo.h>
-// crea el objeto myservo tipo servo
-Servo myservo;
+// libreria Servo
+#include <Servo.h>  // incluye la libreria Servo
+Servo myservo;  // crea el objeto myservo tipo servo
 
 // constantes para conexion pines
 const int potPin = A0;  // pin de conexion de potenciometro
