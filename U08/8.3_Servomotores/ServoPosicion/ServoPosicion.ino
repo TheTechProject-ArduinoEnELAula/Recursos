@@ -20,8 +20,8 @@ const int potPin = A0;  // pin de conexion de potenciometro
 const int servoPin=8;   // pin de conexion de servo
 
 // variables que cambian
-int potValue=0;    // variable para almacenar el valor del potenciometro
-int angle = 0;     // numero de grados del servo
+int potValue=0;    // almacenar el valor del potenciometro
+int angle = 0;     // numero de grados de la posicion del servo
 
 void setup()
 {
