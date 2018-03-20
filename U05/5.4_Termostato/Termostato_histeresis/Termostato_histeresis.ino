@@ -49,7 +49,7 @@ void loop() {
     digitalWrite(ledVerdePin,HIGH);
     Serial.println("Activamos la refrigeracion");
   }
-  if(temperatura<fTemperaturaRefrigeracion<fDeltaT){// Si la temperatura supera la temperatura - histeresis 
+  if(temperatura<fTemperaturaRefrigeracion-fDeltaT){// Si la temperatura supera la temperatura - histeresis 
     digitalWrite(ledVerdePin,LOW);
     Serial.println("Apagamos la refrigeracion");
   }

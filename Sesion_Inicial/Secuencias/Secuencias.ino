@@ -29,7 +29,7 @@ void loop() {
   digitalWrite(ledVPin, HIGH); // establece 5v en el pin del LED verde
   delay(6000);    // espera seis segundos
   // ESTADO SEMAFORO AMARILLO
-                              // establece 5v en el pin del LED verde
+                              // establece 5v en el pin del LED amarillo
                               // establece 0v en el pin del LED rojo
                               // establece 0v en el pin del LED verde                             
   delay(2000);    // espera dos segundos

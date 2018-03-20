@@ -1,23 +1,30 @@
 /*
  * Programa para controlar la posición de un servo
  * en función de un potenciómetro
+ *
+ * Pin A0 Potenciometro
+ * Pin 8 Servomotor
+ *
  * Diciembre de 2017
  * Jose Pujol
  * Basado en programa Knob IDE Arduino- Michal Rinott
  */
 
-// incluye la libreria servo
-#include <Servo.h>
-// crea el objeto myservo tipo servo
-Servo myservo;
+// libreria Servo
+#include <Servo.h>  // incluye la libreria Servo
+Servo myservo;  // crea el objeto myservo tipo servo
 
+// constantes para conexion pines
 const int potPin = A0;  // pin de conexion de potenciometro
-int potValue;    // variable para alamacenar el valor del potenciometro
-int angle = 0; // numero de grados del servo
+const int servoPin=8;   // pin de conexion de servo
+
+// variables que cambian
+int potValue=0;    // almacenar el valor del potenciometro
+int angle = 0;     // numero de grados de la posicion del servo
 
 void setup()
 {
-  myservo.attach(8);   // vincula el servo al pin digital 8
+  myservo.attach(servoPin);   // vincula el servo al pin digital 8
 }
 
 void loop()
