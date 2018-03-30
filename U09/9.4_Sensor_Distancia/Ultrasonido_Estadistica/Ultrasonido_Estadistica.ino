@@ -92,7 +92,6 @@ void statisticdata() {
   }
   // se obtiene la media en caso de que el numero de datos sea mayor de cero
   if (numData > 0) fAverage = fSum / numData;
-}
 
   // se calculan el minimo el maximo y la suma
   for (int i = 0 ; i < numMeasures; i++) {
