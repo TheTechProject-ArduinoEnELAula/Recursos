@@ -1,3 +1,26 @@
+/* 
+  Physical Pixel
+
+  An example of using the Arduino board to receive data from the computer. In
+  this case, the Arduino boards turns on an LED when it receives the character
+  'H', and turns off the LED when it receives the character 'L'.
+
+  The data can be sent from the Arduino Serial Monitor, or another program like
+  Processing (see code below), Flash (via a serial-net proxy), PD, or Max/MSP.
+
+  The circuit:
+  - LED connected from digital pin 13 to ground
+
+  created 2006
+  by David A. Mellis
+  modified 30 Aug 2011
+  by Tom Igoe and Scott Fitzgerald
+
+  This example code is in the public domain.
+
+  http://www.arduino.cc/en/Tutorial/PhysicalPixel
+*/
+
 const int ledPin = 9; // pin al que el led esta conectado
 int incomingByte;      // variable para leer los bytes de entrada
 
